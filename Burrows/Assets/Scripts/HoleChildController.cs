@@ -15,5 +15,6 @@ public class HoleChildController : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col) {
 		gameObject.SendMessageUpwards ("holeContact", col.gameObject);
+		Destroy (col.gameObject);
 	}
 }

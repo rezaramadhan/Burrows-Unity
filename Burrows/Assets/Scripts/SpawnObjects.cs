@@ -8,8 +8,8 @@ public class SpawnObjects : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Instantiate (test, new Vector3(0,0,zpos), Quaternion.identity);
-		//Instantiate (test, new Vector3(-3,0,zpos), Quaternion.identity);
-		//Instantiate (test, new Vector3(3,0,zpos), Quaternion.identity);
+		Instantiate (test, new Vector3(-3,0,zpos), Quaternion.identity);
+		Instantiate (test, new Vector3(3,0,zpos), Quaternion.identity);
 	}
 	
 	// Update is called once per frame

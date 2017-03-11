@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HoleController : MonoBehaviour {
-	public Text state;
+	public ScoreController control;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,8 +17,9 @@ public class HoleController : MonoBehaviour {
 
 	void holeContact(GameObject obj) {
 		if (obj.CompareTag ("Good")) {
+			control.reduceScore ();
 		} else {
-			
+			control.addScore ();
 		}
 	}
 }
