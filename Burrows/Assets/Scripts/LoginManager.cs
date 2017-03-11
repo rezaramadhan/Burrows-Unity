@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LoginManager : MonoBehaviour {
 	public InputField usernameField;
@@ -16,8 +17,8 @@ public class LoginManager : MonoBehaviour {
 		Debug.Log ("haha");
 		highscoreManager = gameObject.AddComponent<HighscoreManager>();
 		highscoreManager.setUsername ("rezaramadhan");	
-		Debug.Log ("get");
-		highscoreManager.getHighscore (changeHighscoreText);
+		Debug.Log ("set");
+		highscoreManager.storeGameResult (10);
 	}
 
 	public void login() {
@@ -66,5 +67,9 @@ public class LoginManager : MonoBehaviour {
 	private void success_login() {
 		Debug.Log ("LoginSuccess");
 		loginStatusText.text = "LOGIN SUCCESS!";
+
+		PlayerPrefs.SetString ("username", username);
+		PlayerPrefs.Save ();
+		SceneManager.LoadScene("main_scene");
 	}
 }
