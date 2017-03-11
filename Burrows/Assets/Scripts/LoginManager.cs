@@ -3,13 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class login_script : MonoBehaviour {
+public class LoginManager : MonoBehaviour {
 	public InputField usernameField;
 	public InputField passwordField;
 	public Text loginStatusText;
 
 	private string username;
 	private string password;
+	private HighscoreManager highscoreManager;
+
+	public void test() {
+		Debug.Log ("haha");
+		highscoreManager = gameObject.AddComponent<HighscoreManager>();
+		highscoreManager.setUsername ("rezaramadhan");	
+		Debug.Log ("get");
+		highscoreManager.getHighscore (changeHighscoreText);
+	}
+
 	public void login() {
 		username = usernameField.text;
 		password = passwordField.text;
@@ -23,6 +33,11 @@ public class login_script : MonoBehaviour {
 		WWW remoteData = new WWW (loc);	
 		StartCoroutine (waitForResponse (remoteData));
 	} 
+
+	public void changeHighscoreText() {
+		int highscore = highscoreManager.highscore;
+		loginStatusText.text = highscore.ToString();
+	}
 
 	public IEnumerator waitForResponse(WWW www) {
 		yield return www;
