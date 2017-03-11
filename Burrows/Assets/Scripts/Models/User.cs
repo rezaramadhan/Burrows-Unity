@@ -12,7 +12,6 @@ public class User {
 	public string password;
 	public string location;
 
-
 	public string toString() {
 		string retval = "";
 		retval += " " + email;
