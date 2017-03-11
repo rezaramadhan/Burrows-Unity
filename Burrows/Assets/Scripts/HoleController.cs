@@ -17,9 +17,9 @@ public class HoleController : MonoBehaviour {
 
 	void holeContact(GameObject obj) {
 		if (obj.CompareTag ("Good")) {
-			control.reduceScore ();
-		} else {
 			control.addScore ();
+		} else {
+			control.reduceScore ();
 		}
 	}
 }

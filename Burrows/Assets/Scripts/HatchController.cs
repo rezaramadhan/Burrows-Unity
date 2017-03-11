@@ -40,10 +40,10 @@ public class HatchController : MonoBehaviour {
 	}
 
 	void hatchContact (GameObject obj) {
-		if (obj.CompareTag ("Good")) {
-			Rigidbody rb;
-			rb = obj.GetComponent<Rigidbody> ();
-			rb.AddForce (new Vector3 (0, 5, 0), ForceMode.Impulse);
+		Rigidbody rb;
+		rb = obj.GetComponent<Rigidbody> ();
+		rb.AddForce (new Vector3 (0, 5, 0), ForceMode.Impulse);
+		if (obj.CompareTag ("Bad")) {
 			control.addScore ();
 		} else {
 			control.reduceScore ();

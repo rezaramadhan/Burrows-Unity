@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour {
 	public Text score;
+	public Text result;
 	private int count;
 	// Use this for initialization
 	void Start () {
@@ -23,10 +24,14 @@ public class ScoreController : MonoBehaviour {
 	public void addScore() {
 		count++;
 		score.text = "Score: " + count.ToString ();
+		if (count >= 10)
+			result.text = "You win";
 	}
 
 	public void reduceScore() {
 		count--;
 		score.text = "Score: " + count.ToString ();
+		if (count <= -10)
+			result.text = "You lose";
 	}
 }
