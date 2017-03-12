@@ -16,4 +16,8 @@ public class TestBehavior : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	void OnBecameInvisible () {
+		Destroy (gameObject);
+	}
 }

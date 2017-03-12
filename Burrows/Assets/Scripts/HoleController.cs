@@ -19,7 +19,7 @@ public class HoleController : MonoBehaviour {
 		if (obj.CompareTag ("Good")) {
 			control.addScore ();
 		} else {
-			control.reduceScore ();
+			control.reduceLife ();
 		}
 	}
 }

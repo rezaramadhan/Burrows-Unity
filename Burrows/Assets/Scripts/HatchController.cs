@@ -44,9 +44,9 @@ public class HatchController : MonoBehaviour {
 		rb = obj.GetComponent<Rigidbody> ();
 		rb.AddForce (new Vector3 (0, 5, 0), ForceMode.Impulse);
 		if (obj.CompareTag ("Bad")) {
-			control.addScore ();
+			//control.addScore ();
 		} else {
-			control.reduceScore ();
+			//control.reduceScore ();
 		}
 	}
 }
