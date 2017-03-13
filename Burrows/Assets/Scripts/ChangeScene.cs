@@ -9,7 +9,7 @@ public class ChangeScene : MonoBehaviour {
 	}
 
 	public void toPlay() {
-		SceneManager.LoadScene ("play_scene");
+		SceneManager.LoadScene ("game_core");
 	}
 
 	public void toHighscore() {
