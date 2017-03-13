@@ -25,18 +25,14 @@ public class ScoreController : MonoBehaviour {
 	}
 
 	public void addScore() {
-		if (result.text.Length == 0) {
-			count++;
-			score.text = "Score: " + count.ToString ();
-			if (count >= 10)
-				result.text = "You win";
-		}
+		count++;
+		score.text = "Score: " + count.ToString ();
 	}
 
 	public void reduceLife() {
 		lifecount--;
 		if (lifecount == 0) {
-			result.text = "You lose";
+			result.text = "Game over";
 			life.text = "Life: 0";
 		}
 		else if (lifecount > 0)
