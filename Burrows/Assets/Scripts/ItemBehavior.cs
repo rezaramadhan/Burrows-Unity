@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestBehavior : MonoBehaviour {
+public class ItemBehavior : MonoBehaviour {
 	public Rigidbody rb;
 	public float x;
 	public float y;
@@ -12,6 +12,7 @@ public class TestBehavior : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
+		//item rotation
 		float vx = Random.Range (-1 * maxRotation, maxRotation);
 		float vy = Random.Range (-1 * maxRotation, maxRotation);
 		float vz = Random.Range (-1 * maxRotation, maxRotation);
