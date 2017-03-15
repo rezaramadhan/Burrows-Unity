@@ -9,15 +9,25 @@ public class ScoreController : MonoBehaviour {
 	public Text life;
 	private int count;
 	public int lifecount;
+	private StateController state;
 	// Use this for initialization
 	void Start () {
 		count = 0;
 		life.text = "Life: " + lifecount.ToString ();
+
+		state = GameObject.Find ("GameState").GetComponent<StateController>();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (state.end) {
+			//change scene
+			Debug.Log("END");
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("score_scene");
+			PlayerPrefs.SetInt ("score", count);
+			PlayerPrefs.Save ();
+		}
 	}
 
 	void FixedUpdate() {
@@ -40,6 +50,6 @@ public class ScoreController : MonoBehaviour {
 	}
 
 	public int getScore() {
-		return count;
+		return count;	
 	}
 }
