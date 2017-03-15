@@ -38,4 +38,8 @@ public class ScoreController : MonoBehaviour {
 		else if (lifecount > 0)
 			life.text = "Life: " + lifecount.ToString ();
 	}
+
+	public int getScore() {
+		return count;
+	}
 }

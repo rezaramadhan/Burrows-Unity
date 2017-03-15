@@ -11,7 +11,7 @@ public class HatchController : MonoBehaviour {
 	void Start () {
 		istate = false;
 	}
-	
+
 	// Update is called once per frame
 	/// <summary>
 	/// if player is idling (not opening any hatches) for 5 seconds, 
@@ -19,25 +19,25 @@ public class HatchController : MonoBehaviour {
 	/// </summary>
 	void Update () { 
 		if (Input.GetKey ("j")) {
-			this.transform.GetChild (0).gameObject.SetActive (false);
-			this.transform.parent.GetChild (0).GetChild (0).gameObject.SetActive (true);
-		} else {
 			this.transform.GetChild (0).gameObject.SetActive (true);
 			this.transform.parent.GetChild (0).GetChild (0).gameObject.SetActive (false);
+		} else {
+			this.transform.GetChild (0).gameObject.SetActive (false);
+			this.transform.parent.GetChild (0).GetChild (0).gameObject.SetActive (true);
 		}
 		if (Input.GetKey ("k")) {
-			this.transform.GetChild (1).gameObject.SetActive (false);
-			this.transform.parent.GetChild (0).GetChild (1).gameObject.SetActive (true);
-		} else {
 			this.transform.GetChild (1).gameObject.SetActive (true);
 			this.transform.parent.GetChild (0).GetChild (1).gameObject.SetActive (false);
+		} else {
+			this.transform.GetChild (1).gameObject.SetActive (false);
+			this.transform.parent.GetChild (0).GetChild (1).gameObject.SetActive (true);
 		}
 		if (Input.GetKey ("l")) {
-			this.transform.GetChild (2).gameObject.SetActive (false);
-			this.transform.parent.GetChild (0).GetChild (2).gameObject.SetActive (true);
-		} else {
 			this.transform.GetChild (2).gameObject.SetActive (true);
 			this.transform.parent.GetChild (0).GetChild (2).gameObject.SetActive (false);
+		} else {
+			this.transform.GetChild (2).gameObject.SetActive (false);
+			this.transform.parent.GetChild (0).GetChild (2).gameObject.SetActive (true);
 		} //if no input is pressed and all hatches are closed (idle)
 		if (!this.transform.parent.GetChild (0).GetChild (0).gameObject.activeSelf &&
 		    !this.transform.parent.GetChild (0).GetChild (1).gameObject.activeSelf &&
