@@ -42,10 +42,10 @@ public class SpawnObjects : MonoBehaviour {
 		//looping until game over
 		do {
 			do {
-				j = ((int)Random.Range (1, 4));
+				j = ((int)Random.Range (1, 100)) % 3;
 			} while (j == k);
 			idx = (int)Random.Range (0, items.Length);
-			Instantiate (items [idx], new Vector3 ((j - 2) * 3, 0, zpos), Quaternion.identity);
+			Instantiate (items [idx], new Vector3 ((j - 1) * 3, 0, zpos), Quaternion.identity);
 //
 //			for (int i = -3; i <= 3; i = i + 3) {
 //				rand = (int)Random.Range (1, 100);
@@ -71,12 +71,12 @@ public class SpawnObjects : MonoBehaviour {
 				itr++;
 			}
 			if (itr == 3 && Time.time >= elapsed + 40f) { //insane; double item spawn
-				k = ((int)Random.Range (1, 4));
+				k = ((int)Random.Range (1, 100)) % 3;
 				idx = (int)Random.Range (0, items.Length);
-				Instantiate (items [idx], new Vector3 ((k - 2) * 3, 0, zpos), Quaternion.identity);
+				Instantiate (items [idx], new Vector3 ((k - 1) * 3, 0, zpos), Quaternion.identity);
 				itr++;
 			}
-			if (itr == 4 && Time.time >= elapsed + 60f) { //hell; triple item spawn max speed - good luck
+			if (itr == 4 && Time.time >= elapsed + 60f) { //unfair; triple item spawn max speed - good luck
 				do {
 					idx = (int)Random.Range (0, items.Length);
 					Instantiate (items [idx], new Vector3 (-3, 0, zpos), Quaternion.identity);
@@ -84,7 +84,7 @@ public class SpawnObjects : MonoBehaviour {
 					Instantiate (items [idx], new Vector3 (0, 0, zpos), Quaternion.identity);
 					idx = (int)Random.Range (0, items.Length);
 					Instantiate (items [idx], new Vector3 (3, 0, zpos), Quaternion.identity);
-					yield return new WaitForSeconds (0.2f);
+					yield return new WaitForSeconds (0.5f);
 				} while (!state.end);
 			}
 		} while (!state.end);
