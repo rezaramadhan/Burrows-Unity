@@ -7,6 +7,7 @@ public class HatchController : MonoBehaviour {
 	public ScoreController control;
 	private float idletime; // time of idle 
 	private bool istate;
+	public AudioSource hatchSFX;
 	// Use this for initialization
 	void Start () {
 		istate = false;
@@ -61,13 +62,12 @@ public class HatchController : MonoBehaviour {
 	}
 
 	void hatchContact (GameObject obj) {
+		//make items bounce
 		Rigidbody rb;
 		rb = obj.GetComponent<Rigidbody> ();
 		rb.AddForce (new Vector3 (0, 5, 0), ForceMode.Impulse);
-		if (obj.CompareTag ("Bad")) {
-			//control.addScore ();
-		} else {
-			//control.reduceScore ();
-		}
+
+		//play hatch sound effect
+		hatchSFX.Play();
 	}
 }

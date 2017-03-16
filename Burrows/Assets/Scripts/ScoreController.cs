@@ -8,16 +8,16 @@ public class ScoreController : MonoBehaviour {
 	public Text result;
 	public Text life;
 	private int count;
-	public int lifecount;
+	public int hp;
 	private StateController state;
 	// Use this for initialization
 	void Start () {
 		count = 0;
-		life.text = "Life: " + lifecount.ToString ();
+		life.text = "Life: " + hp.ToString ();
 
 		state = GameObject.Find ("GameState").GetComponent<StateController>();
-
 	}
+	// Use this for initialization
 	
 	// Update is called once per frame
 	void Update () {
@@ -35,18 +35,18 @@ public class ScoreController : MonoBehaviour {
 	}
 
 	public void addScore() {
-		count++;
+		count += 10;
 		score.text = "Score: " + count.ToString ();
 	}
 
 	public void reduceLife() {
-		lifecount--;
-		if (lifecount == 0) {
+		hp--;
+		if (hp == 0) {
 			result.text = "Game over";
 			life.text = "Life: 0";
 		}
-		else if (lifecount > 0)
-			life.text = "Life: " + lifecount.ToString ();
+		else if (hp > 0)
+			life.text = "Life: " + hp.ToString ();
 	}
 
 	public int getScore() {

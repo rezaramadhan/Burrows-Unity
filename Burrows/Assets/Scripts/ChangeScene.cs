@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour {
 
 	public void backToMenu() {
-		Debug.Log ("TOMENU");
 		SceneManager.LoadScene ("main_scene");
 	}
 
@@ -22,6 +21,6 @@ public class ChangeScene : MonoBehaviour {
 	}
 
 	public void toLogin() {
-		SceneManager.LoadScene ("login_scene\t");
+		SceneManager.LoadScene ("login_scene");
 	}
 }
