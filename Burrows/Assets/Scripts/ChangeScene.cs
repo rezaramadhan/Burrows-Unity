@@ -20,4 +20,8 @@ public class ChangeScene : MonoBehaviour {
 	public void toCredit() {
 		SceneManager.LoadScene ("credit_scene");
 	}
+
+	public void toLogin() {
+		SceneManager.LoadScene ("login_scene\t");
+	}
 }
