@@ -35,13 +35,16 @@ public class HighscoreManager : MonoBehaviour {
 		}
 	}
 
-	public void storeGameResult(int score) {
+
+
+
+	public void storeGameResult(int score, System.Action onComplete) {
 		string url = loc + ".json";
 		WWW request = new WWW (url);
-		StartCoroutine (waitforRequestUser (request, score));
+		StartCoroutine (waitforRequestUser (request, score, onComplete));
 	}
 
-	private IEnumerator waitforRequestUser(WWW www, int score) {
+	private IEnumerator waitforRequestUser(WWW www, int score, System.Action onComplete) {
 		yield return www;
 
 		if (www.error == null) {
@@ -56,19 +59,19 @@ public class HighscoreManager : MonoBehaviour {
 			if (score > highscore)
 				highscore = score;
 
-			postNewHighscore(u.exp, u.money, highscore);
+			postNewHighscore(u.exp, u.money, highscore, onComplete);
 		} else {
 			Debug.Log("Error!" + www.error);
 		}
 	}
 
-	private void postNewHighscore(int newexp, int newmoney, int newhighscore) {
-		StartCoroutine (uploadNewValue ("exp", newexp));
-		StartCoroutine (uploadNewValue ("money", newmoney));
-		StartCoroutine (uploadNewValue ("highscore", newhighscore));
+	private void postNewHighscore(int newexp, int newmoney, int newhighscore, System.Action onComplete) {
+		StartCoroutine (uploadNewValue ("exp", newexp, onComplete));
+		StartCoroutine (uploadNewValue ("money", newmoney, onComplete));
+		StartCoroutine (uploadNewValue ("highscore", newhighscore, onComplete));
 	}
 
-	private IEnumerator uploadNewValue(string key, int value) {
+	private IEnumerator uploadNewValue(string key, int value, System.Action onComplete) {
 		string url = loc + "/" + key + ".json";
 		Debug.Log ("URL " + url);
 		byte[] data = System.Text.Encoding.ASCII.GetBytes (value.ToString());
@@ -80,6 +83,7 @@ public class HighscoreManager : MonoBehaviour {
 			Debug.Log ("ERROR! " + req.error);
 		} else {
 			Debug.Log ("SUCCESS! " + req.responseCode);
+			onComplete ();
 		}
 	}
 }

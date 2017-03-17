@@ -11,15 +11,15 @@ public class LoginManager : MonoBehaviour {
 
 	private string username;
 	private string password;
-	private HighscoreManager highscoreManager;
+//	private HighscoreManager highscoreManager;
 
-	public void test() {
-		Debug.Log ("haha");
-		highscoreManager = gameObject.AddComponent<HighscoreManager>();
-		highscoreManager.setUsername ("rezaramadhan");	
-		Debug.Log ("set");
-		highscoreManager.storeGameResult (10);
-	}
+//	public void test() {
+//		Debug.Log ("haha");
+//		highscoreManager = gameObject.AddComponent<HighscoreManager>();
+//		highscoreManager.setUsername ("rezaramadhan");	
+//		Debug.Log ("set");
+//		highscoreManager.storeGameResult (10);
+//	}
 
 	public void login() {
 		username = usernameField.text;
@@ -35,10 +35,10 @@ public class LoginManager : MonoBehaviour {
 		StartCoroutine (waitForResponse (remoteData));
 	} 
 
-	public void changeHighscoreText() {
-		int highscore = highscoreManager.highscore;
-		loginStatusText.text = highscore.ToString();
-	}
+//	public void changeHighscoreText() {
+//		int highscore = highscoreManager.highscore;
+//		loginStatusText.text = highscore.ToString();
+//	}
 
 	public IEnumerator waitForResponse(WWW www) {
 		yield return www;
@@ -56,6 +56,7 @@ public class LoginManager : MonoBehaviour {
 			}
 		} else {
 			Debug.Log("Error!" + www.error);
+			failed_login ();
 		}
 	}
 
