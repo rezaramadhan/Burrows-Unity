@@ -7,10 +7,18 @@ public class HatchController : MonoBehaviour {
 	public ScoreController control;
 	private float idletime; // time of idle 
 	private bool istate;
+
 	public AudioSource hatchSFX;
+
+	public Text state;
+
+	bool dir;
+	float timer;
+
 	// Use this for initialization
 	void Start () {
 		istate = false;
+		dir = true;
 	}
 
 	// Update is called once per frame
@@ -48,16 +56,48 @@ public class HatchController : MonoBehaviour {
 				//initiate idle time count
 				idletime = Time.time;
 				istate = true;
+
+				//notify player that they are idling
+				state.text = "Idle!";
 			} else { //check if idle time >= 5 seconds
 				if (Time.time >= idletime + 5f) {
 					//reduce life & reset idle time count
 					control.reduceLife ();
 					idletime = Time.time;
+
+					//show player they are taking damage
+					//also play sound effect
+					/*
+					this.transform.GetChild (0).transform.Translate (-0.1f, 0, 0);
+					this.transform.GetChild (1).transform.Translate (-0.1f, 0, 0);
+					this.transform.GetChild (2).transform.Translate (-0.1f, 0, 0);
+					timer = 0f;
+					while (timer <= 3f) {
+						if (dir) {
+							this.transform.GetChild (0).transform.Translate (0.2f, 0, 0);
+							this.transform.GetChild (1).transform.Translate (0.2f, 0, 0);
+							this.transform.GetChild (2).transform.Translate (0.2f, 0, 0);
+							dir = false;
+						} else {
+							this.transform.GetChild (0).transform.Translate (-0.2f, 0, 0);
+							this.transform.GetChild (1).transform.Translate (-0.2f, 0, 0);
+							this.transform.GetChild (2).transform.Translate (-0.2f, 0, 0);
+							dir = true;
+						}
+						timer += Time.deltaTime;
+					}
+					this.transform.GetChild (0).transform.position.Set (0, 0, 0);
+					this.transform.GetChild (1).transform.position.Set (0, 0, 0);
+					this.transform.GetChild (2).transform.position.Set (0, 0, 0);
+					*/
+					//notify player that they are taking damage
+					//state.text = "Idle! Health -1";
 				}
 			}
 		} else {
 			//one or more hatches are open; reset idle state
 			istate = false;
+			state.text = "";
 		}
 	}
 

@@ -44,6 +44,7 @@ public class ScoreController : MonoBehaviour {
 		if (hp == 0) {
 			result.text = "Game over";
 			life.text = "Life: 0";
+			state.end = true;
 		}
 		else if (hp > 0)
 			life.text = "Life: " + hp.ToString ();
