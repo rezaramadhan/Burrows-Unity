@@ -23,4 +23,8 @@ public class ChangeScene : MonoBehaviour {
 	public void toLogin() {
 		SceneManager.LoadScene ("login_scene");
 	}
+
+	public void toTutorial() {
+		SceneManager.LoadScene ("tutorial_scene");
+	}
 }
