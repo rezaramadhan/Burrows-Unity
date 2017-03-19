@@ -35,9 +35,9 @@ public class SpawnObjects : MonoBehaviour {
 	}
 
 	private IEnumerator spawnItems(float delay) {
-		int itr = 0;
-		int j = 1;
-		int k = 1;
+		int itr = 1;
+		int j = -999;
+		int k = -999;
 
 		//looping until game over
 		do {
@@ -58,19 +58,15 @@ public class SpawnObjects : MonoBehaviour {
 			yield return new WaitForSeconds (delay);
 			//difficulty ramps up every 10 seconds; default is easy
 			//final difficulty after 60 seconds
-			if (itr == 0 && Time.time >= elapsed + 10f) { //medium
+			if (itr == 1 && Time.time >= elapsed + 20f) { //medium
 				delay = delay / 2;
 				itr++;
 			}
-			if (itr == 1 && Time.time >= elapsed + 20f) { //hard
+			if (itr == 2 && Time.time >= elapsed + 30f) { //hard
 				delay = delay / 2;
 				itr++;
 			}
-			if (itr == 2 && Time.time >= elapsed + 30f) { //expert
-				delay = delay / 2;
-				itr++;
-			}
-			if (itr == 3 && Time.time >= elapsed + 40f) { //insane; double item spawn
+			if (itr == 3 && Time.time >= elapsed + 40f) { //expert; double item spawn
 				k = ((int)Random.Range (1, 100)) % 3;
 				idx = (int)Random.Range (0, items.Length);
 				Instantiate (items [idx], new Vector3 ((k - 1) * 3, 0, zpos), Quaternion.identity);

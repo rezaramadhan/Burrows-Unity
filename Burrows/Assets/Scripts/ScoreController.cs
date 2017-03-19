@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour {
 	public Text score;
-	public Text result;
+	public Text statetxt;
 	public Text life;
 	private int count;
 	public int hp;
@@ -41,13 +41,13 @@ public class ScoreController : MonoBehaviour {
 
 	public void reduceLife() {
 		hp--;
-		if (hp == 0) {
-			result.text = "Game over";
+		if (hp <= 0) {
 			life.text = "Life: 0";
 			state.end = true;
-		}
-		else if (hp > 0)
+		} else {
+			Debug.Log ("Health Down");
 			life.text = "Life: " + hp.ToString ();
+		}
 	}
 
 	public int getScore() {

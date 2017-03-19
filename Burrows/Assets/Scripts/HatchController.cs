@@ -12,13 +12,11 @@ public class HatchController : MonoBehaviour {
 
 	public Text state;
 
-	bool dir;
 	float timer;
 
 	// Use this for initialization
 	void Start () {
 		istate = false;
-		dir = true;
 	}
 
 	// Update is called once per frame
@@ -58,7 +56,7 @@ public class HatchController : MonoBehaviour {
 				istate = true;
 
 				//notify player that they are idling
-				state.text = "Idle!";
+				state.text = "Idle! ";
 			} else { //check if idle time >= 5 seconds
 				if (Time.time >= idletime + 5f) {
 					//reduce life & reset idle time count

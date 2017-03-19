@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HoleController : MonoBehaviour {
+	public AudioSource hitsound;
 	public ScoreController control;
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class HoleController : MonoBehaviour {
 			control.addScore ();
 		} else {
 			control.reduceLife ();
+			hitsound.Play ();
 		}
 	}
 }

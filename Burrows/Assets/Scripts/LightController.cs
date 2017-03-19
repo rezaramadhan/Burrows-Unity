@@ -20,7 +20,7 @@ public class LightController : MonoBehaviour {
 			yield return new WaitForSeconds (5);
 			torch.intensity = 2;
 			yield return new WaitForSeconds (1);
-			torch.intensity = 1;
+			torch.intensity = 0;
 		}
 	}
 }

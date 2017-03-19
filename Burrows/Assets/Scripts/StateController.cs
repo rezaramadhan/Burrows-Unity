@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class StateController : MonoBehaviour {
 	public bool start;
 	public bool end;
-	public Text result;
 	public AudioSource bgm;
 	// Use this for initialization
 	void Start () {
