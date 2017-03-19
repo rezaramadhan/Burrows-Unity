@@ -14,6 +14,8 @@ public class StateController : MonoBehaviour {
 		start = true;
 		end = false;
 		bgm.loop = true;
+
+		bgm.volume = 0.07f;
 		bgm.Play ();
 	}
 	
