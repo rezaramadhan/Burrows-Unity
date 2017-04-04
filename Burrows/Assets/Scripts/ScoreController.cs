@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO.Ports;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Text;
 
 public class ScoreController : MonoBehaviour {
 	public Text score;
@@ -10,8 +12,12 @@ public class ScoreController : MonoBehaviour {
 	private int count;
 	public int hp;
 	private StateController state;
+	public HatchController hatchController;
+	private SerialPort sp;
+
 	// Use this for initialization
 	void Start () {
+		sp = hatchController.serialPort;
 		count = 0;
 		life.text = "Life: " + hp.ToString ();
 
@@ -37,6 +43,9 @@ public class ScoreController : MonoBehaviour {
 	public void addScore() {
 		count += 10;
 		score.text = "Score: " + count.ToString ();
+
+		byte[] buff = Encoding.ASCII.GetBytes (count.ToString ());
+		sp.Write (buff, 0, buff.Length);
 	}
 
 	public void reduceLife() {
