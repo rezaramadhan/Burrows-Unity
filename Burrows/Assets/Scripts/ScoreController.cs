@@ -45,6 +45,7 @@ public class ScoreController : MonoBehaviour {
 		score.text = "Score: " + count.ToString ();
 
 		byte[] buff = Encoding.ASCII.GetBytes (count.ToString ());
+		Debug.Log ("send " + buff.ToString());
 		sp.Write (buff, 0, buff.Length);
 	}
 

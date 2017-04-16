@@ -17,7 +17,7 @@ public class ItemBehavior : MonoBehaviour {
 		float vy = Random.Range (-1 * maxRotation, maxRotation);
 		float vz = Random.Range (-1 * maxRotation, maxRotation);
 		rotationVector = new Vector3(vx, vy, vz);
-		Debug.Log (rotationVector);
+//		Debug.Log (rotationVector);
 		rb.AddForce (new Vector3 (0, y, x),ForceMode.Impulse);
 	}
 	

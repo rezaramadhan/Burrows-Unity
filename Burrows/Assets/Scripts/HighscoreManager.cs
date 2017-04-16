@@ -34,10 +34,7 @@ public class HighscoreManager : MonoBehaviour {
 			Debug.Log("Error!" + www.error);
 		}
 	}
-
-
-
-
+		
 	public void storeGameResult(int score, System.Action onComplete) {
 		string url = loc + ".json";
 		WWW request = new WWW (url);
@@ -49,6 +46,7 @@ public class HighscoreManager : MonoBehaviour {
 
 		if (www.error == null) {
 			string data = www.text;
+			Debug.Log (data);
 			User u = new User ();
 			u = JsonUtility.FromJson<User> (data);
 			Debug.Log (u.toString ());
